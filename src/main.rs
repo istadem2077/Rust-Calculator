@@ -24,7 +24,7 @@ impl Operations {
         }
     }
     fn _get_string(msg: &str) -> String {
-        let mut op = String::new();
+        let mut op: String = String::new();
         std::print!("{}", msg);
         std::io::stdout().flush().unwrap();
         std::io::stdin().read_line(&mut op).expect("Error");
@@ -49,9 +49,9 @@ impl Input {
 
 fn main(){
     std::println!("Basic Calculation");
-        let num11 = Input::_parse_data("Enter 1st number: ");
-        let num22 = Input::_parse_data("Enter 2nd number: ");
-        let op = Operations::_get_string("Enter operation (+ - / *): ");
+        let num11: f32 = Input::_parse_data("Enter 1st number: ");
+        let num22: f32 = Input::_parse_data("Enter 2nd number: ");
+        let op: String = Operations::_get_string("Enter operation (+ - / *): ");
 
-        std::println!("{} {} {} = {}", num11, op, num22, Operations::_eval( &(Operations::_get_op(&op).unwrap()), num11, num22) );
+        std::println!("{num11} {op} {num22} = {}", Operations::_eval( &(Operations::_get_op(&op).unwrap()), num11, num22) );
 }
